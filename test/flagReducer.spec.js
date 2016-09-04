@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import makeFlagReducer from 'src/flagReducer.js';
 
 describe('makeFlagReducer', () => {
-  it('should throw an error if onActionsTypes and offActionsTypes share values', () => {
+  it('should throw an error if onActionsTypes and offActionsTypes contain identical values', () => {
     const proxy = () => makeFlagReducer(true, false, ['FOO_ON'], ['FOO_OFF', 'FOO_ON']);
     expect(proxy).to.throw(Error, 'Invalid FlagReducer: Identical on and off actions found: ["FOO_ON"]');
   });
