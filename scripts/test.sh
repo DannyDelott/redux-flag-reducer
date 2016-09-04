@@ -1,7 +1,8 @@
+set -x
+
 #!/bin/bash
-./node_modules/.bin/mocha-webpack \
-  --webpack-config ./webpack.config.test.js \
-  --recursive \
+./node_modules/.bin/mocha \
+  --compilers js:babel-register \
   -R mocha-pretty-spec-reporter \
-  'test/*.spec.js' \
+  'makeFlagReducer.spec.js' \
   $*

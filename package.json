@@ -1,6 +1,6 @@
 {
   "name": "redux-flag-reducer",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "Create a reducer that returns true or false, \"on\" or \"off\", \"loaded\" or \"loading\", etc.",
   "main": "index.js",
   "scripts": {
@@ -19,20 +19,13 @@
     "url": "https://github.com/DannyDelott/redux-flag-reducer/issues"
   },
   "homepage": "https://github.com/DannyDelott/redux-flag-reducer#readme",
-  "dependencies": {
-    "lodash": "^4.15.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
-    "mocha-pretty-spec-reporter": "0.1.0-beta.2",
-    "mocha-webpack": "^0.6.0",
-    "source-map-support": "^0.4.2",
-    "webpack": "^1.13.2",
-    "webpack-node-externals": "^1.3.3"
+    "mocha-pretty-spec-reporter": "0.1.0-beta.2"
   }
 }
