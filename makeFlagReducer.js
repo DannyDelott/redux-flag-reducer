@@ -1,13 +1,13 @@
-export default function makeFlagReducer(onValue, offValue, onActionTypes = [], offActionTypes = [], defaultState) {
+export default function makeFlagReducer(onValue, offValue, onActionTypes = [], offActionTypes = [], initialState) {
   const common = intersection(onActionTypes, offActionTypes);
 
   if (common.length > 0) {
     throw new Error(`Invalid FlagReducer: Identical on and off actions found: ${JSON.stringify(common)}`);
   }
 
-  const initialState = defaultState || offValue;
+  const defaultState = initialState || offValue;
 
-  return (state = initialState, action = {}) => {
+  return (state = defaultState, action = {}) => {
     if (!action.type) {
       return state;
     } else if (onActionTypes.includes(action.type)) {
