@@ -1,7 +1,6 @@
-import intersection from 'lodash/intersection';
-
-export default function makeFlagReducer(onValue = true, offValue = false, onActionTypes = [], offActionTypes = [], defaultState) {
+export default function makeFlagReducer(onValue, offValue, onActionTypes = [], offActionTypes = [], defaultState) {
   const common = intersection(onActionTypes, offActionTypes);
+
   if (common.length > 0) {
     throw new Error(`Invalid FlagReducer: Identical on and off actions found: ${JSON.stringify(common)}`);
   }
@@ -17,4 +16,13 @@ export default function makeFlagReducer(onValue = true, offValue = false, onActi
       return offValue;
     }
   };
+}
+
+function intersection(arr1, arr2) {
+  return  arr2.reduce((common, element) => {
+    if (arr1.includes(element)) {
+      common.push(element);
+    }
+    return common;
+  }, []);
 }
