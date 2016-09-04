@@ -1,19 +1,20 @@
 import intersection from 'lodash/intersection';
 
-export default function makeFlagReducer(name = 'flag', onActionTypes = [], offActionTypes = [], defaultState = false) {
+export default function makeFlagReducer(onValue = true, offValue = false, onActionTypes = [], offActionTypes = [], defaultState) {
   const common = intersection(onActionTypes, offActionTypes);
   if (common.length > 0) {
-    throw new Error(`Invalid FlagReducer ${name}: Duplicate actions found: ${JSON.stringify(common)}`);
+    throw new Error(`Invalid FlagReducer: Identical on and off actions found: ${JSON.stringify(common)}`);
   }
-  return (state = defaultState, action = {}) => {
+
+  const initialState = defaultState || offValue;
+
+  return (state = initialState, action = {}) => {
     if (!action.type) {
       return state;
-    }
-    if (onActionTypes.indexOf(action.type) > -1) {
-      return true;
-    }
-    if (offActionTypes.indexOf(action.type) > -1) {
-      return false;
+    } else if (onActionTypes.includes(action.type)) {
+      return onValue;
+    } else if (offActionTypes.includes(action.type)) {
+      return offValue;
     }
   };
 }
