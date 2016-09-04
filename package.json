@@ -1,7 +1,7 @@
 {
-  "name": "reducer-templates",
-  "version": "1.1.0",
-  "description": "Simple reducer creators for redux",
+  "name": "redux-flag-reducer",
+  "version": "1.2.0",
+  "description": "Create a reducer that returns true or false, \"on\" or \"off\", \"loaded\" or \"loading\", etc.",
   "main": "index.js",
   "scripts": {
     "build": "bash ./scripts/build.sh",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DannyDelott/reducer-templates.git"
+    "url": "git+https://github.com/DannyDelott/redux-flag-reducer.git"
   },
   "author": "Danny Delott",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DannyDelott/reducer-templates/issues"
+    "url": "https://github.com/DannyDelott/redux-flag-reducer/issues"
   },
-  "homepage": "https://github.com/DannyDelott/reducer-templates#readme",
+  "homepage": "https://github.com/DannyDelott/redux-flag-reducer#readme",
   "dependencies": {
     "lodash": "^4.15.0"
   },
