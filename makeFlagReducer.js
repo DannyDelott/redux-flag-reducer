@@ -8,13 +8,12 @@ export default function makeFlagReducer(onValue, offValue, onActionTypes = [], o
   const defaultState = initialState || offValue;
 
   return (state = defaultState, action = {}) => {
-    if (!action.type) {
-      return state;
-    } else if (onActionTypes.includes(action.type)) {
+    if (onActionTypes.includes(action.type)) {
       return onValue;
     } else if (offActionTypes.includes(action.type)) {
       return offValue;
     }
+    return state;
   };
 }
 
